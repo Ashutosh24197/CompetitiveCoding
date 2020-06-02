@@ -1,0 +1,21 @@
+/* problem https://www.hackerrank.com/challenges/reverse-a-doubly-linked-list/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=linked-lists  */
+
+/*  solution  */
+
+static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
+           DoublyLinkedListNode prev=null;
+           DoublyLinkedListNode cur=head;
+           DoublyLinkedListNode next=head.next;
+           while(cur!=null){
+               cur.next=prev;
+               cur.prev=next;
+
+               prev=cur;
+               cur=next;
+               if(next!=null)
+                 next=next.next;
+           }
+           
+           
+         return prev;
+    }

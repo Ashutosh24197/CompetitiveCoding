@@ -1,0 +1,16 @@
+/* problem  https://www.hackerrank.com/challenges/ctci-linked-list-cycle/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=linked-lists  */
+
+/* solution  */
+
+boolean hasCycle(Node head) {
+    if(head == null ) return false;
+    Node slow=head;
+    Node fast=head.next;
+    while(slow!=fast){
+        if(slow!=null && (fast!=null && fast.next!=null)){
+            slow=slow.next;
+            fast=fast.next.next;
+        }else {return false;}
+    }
+          return true;
+}

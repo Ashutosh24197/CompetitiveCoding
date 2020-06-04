@@ -1,0 +1,24 @@
+/* problem  https://www.hackerrank.com/challenges/minimum-swaps-2/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays   */
+
+/* solution */
+
+static int minimumSwaps(int[] arr) {
+          int countSwap=0;
+
+          for(int i=0;i<arr.length;i++){
+              if(arr[i]!=i+1){
+                  for(int j=i+1;j<arr.length;j++){
+                      if(arr[j]==i+1){
+                          arr[j]=arr[i];
+                          arr[i]=i+1;
+                          countSwap++;
+                          break;
+                      }
+                  }
+              }
+          
+          }
+
+          return countSwap;
+
+    }

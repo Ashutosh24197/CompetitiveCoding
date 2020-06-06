@@ -1,0 +1,19 @@
+/* problem https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=trees */
+
+/* solution */
+
+public static int height(Node root) {
+      	// Write your code here.
+          if(root==null)
+            return -1;
+
+          int left= height(root.left);
+          int right= height(root.right);
+          int h=0;
+          if(left>right){
+            h= (1 + left);
+          }else{
+            h= (1 + right);
+          }
+        return h;
+    }

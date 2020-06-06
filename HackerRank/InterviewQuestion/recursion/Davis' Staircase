@@ -1,0 +1,55 @@
+/* problem  https://www.hackerrank.com/challenges/ctci-recursive-staircase/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=recursion-backtracking   */
+/*  solution  */
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the stepPerms function below.
+    static int stepPerms(int n) {
+       int a=1;
+       int b=1;
+       int c=2;
+       int ans=1;
+       if(n==2){
+           ans=2;
+       }
+       for(int i=3;i<=n;i++){
+         ans=a+b+c;
+         a=b;
+         b=c;
+         c=ans;
+       }
+     return ans;  
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int s = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        for (int sItr = 0; sItr < s; sItr++) {
+            int n = scanner.nextInt();
+            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+            int res = stepPerms(n);
+
+            bufferedWriter.write(String.valueOf(res));
+            bufferedWriter.newLine();
+        }
+
+        bufferedWriter.close();
+
+        scanner.close();
+    }
+}

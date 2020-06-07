@@ -1,0 +1,35 @@
+/* problem https://www.hackerrank.com/challenges/triple-sum/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=search  */
+
+/* solution */
+
+static long triplets(int[] a, int[] b, int[] c) {
+     int[] ar = Arrays.stream(a).sorted().distinct().toArray();
+     int[] br = Arrays.stream(b).sorted().distinct().toArray();
+     int[] cr = Arrays.stream(c).sorted().distinct().toArray();
+
+     long ans=0;
+     for(int i=0;i<br.length;i++){
+         
+         
+         int c1=0;
+         int c2=0;
+         for(int j=0;j<ar.length;j++){
+          if(ar[j]<=br[i]){
+              c1++;
+          }else{
+              break;
+          }
+         }
+         for(int j=0;j<cr.length;j++){
+          if(cr[j]<=br[i]){
+              c2++;
+          }else{
+              break;
+          }
+         }
+         ans+=(long)c1*c2;
+
+     }
+
+     return ans;
+    }

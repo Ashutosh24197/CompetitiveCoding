@@ -1,0 +1,16 @@
+# problem  https://codeforces.com/contest/1368/problem/A  
+# Solution 
+
+for _ in range(int(input())):
+    a,b,n=input().split()
+    a=int(a)
+    b=int(b)
+    n=int(n)
+    count=0;
+    while a<=n and b<=n:
+        if a<b:
+            a+=b
+        else:
+            b+=a
+        count+=1
+    print(count)

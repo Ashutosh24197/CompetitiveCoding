@@ -1,0 +1,7 @@
+/* problem  https://codeforces.com/contest/1370/problem/A  */
+
+/* solution */
+
+for _ in range(int(input())):
+    n=int(input())
+    print(int(n/2))

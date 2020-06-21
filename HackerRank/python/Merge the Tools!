@@ -1,0 +1,17 @@
+# problem  https://www.hackerrank.com/challenges/merge-the-tools/problem
+
+# solution
+
+from collections import OrderedDict
+def merge_the_tools(string, k):
+    l=[]
+    for i in range(int(len(string)/k)):
+        l.append(string[i*k:i*k+k])
+
+    for i in range(len(l)):
+        print("".join(OrderedDict.fromkeys(l[i])))
+    # your code goes here
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)

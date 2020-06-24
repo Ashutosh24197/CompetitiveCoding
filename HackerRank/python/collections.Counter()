@@ -1,0 +1,14 @@
+# Problem https://www.hackerrank.com/challenges/collections-counter/problem
+# Solution
+
+
+x=int(input())
+sh=input().split()
+n=int(input())
+money=0
+for _ in range(n):
+    size,price=input().split()
+    if sh.count(size)>0:
+        money+=int(price)
+        sh.remove(size)
+print(money)

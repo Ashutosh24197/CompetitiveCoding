@@ -1,0 +1,17 @@
+# Problem  https://www.hackerrank.com/challenges/py-collections-namedtuple/problem
+
+# Solution
+
+
+from collections import namedtuple
+
+n = int(input())
+avg=0
+heading=input().split()
+student=namedtuple('student',heading)
+for _ in range(n):
+    data=input().split()
+    s=student(data[0],data[1],data[2],data[3])
+    avg+=int(s.MARKS)
+
+print(avg/n)

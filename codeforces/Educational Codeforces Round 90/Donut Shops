@@ -1,0 +1,19 @@
+# Problem https://codeforces.com/contest/1373/problem/A
+
+# solution 
+
+n=int(input())
+for _ in range(n):
+    a,b,c=input().split()
+    a=int(a)
+    b=int(b)
+    c=int(c)
+    if a<c:
+        print(1,end=" ")
+    else:
+        print(-1,end=" ")
+        
+    if c<a*b:
+        print(b)
+    else:
+        print(-1)

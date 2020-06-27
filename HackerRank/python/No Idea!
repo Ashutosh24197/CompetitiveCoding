@@ -1,0 +1,19 @@
+# problem https://www.hackerrank.com/challenges/no-idea/problem
+
+# solution
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n,m=input().split(" ")
+arr=input().split(" ")
+a=set(input().split(" "))
+b=set(input().split(" "))
+
+ans=0
+
+for i in arr:
+    if i in a:
+        ans+=1
+    if i in b:
+        ans-=1
+
+print(ans)

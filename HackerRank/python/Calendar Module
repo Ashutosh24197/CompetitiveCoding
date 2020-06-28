@@ -1,0 +1,10 @@
+# problem  https://www.hackerrank.com/challenges/calendar-module/problem
+
+# solution
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import calendar as cl
+day=['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY']
+s=input().split()
+
+print(day[cl.weekday(int(s[2]),int(s[0]),int(s[1]))])

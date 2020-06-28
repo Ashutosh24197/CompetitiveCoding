@@ -1,0 +1,14 @@
+# problem  https://www.hackerrank.com/challenges/exceptions/problem
+
+# solution
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+for _ in range(int(input())):
+    a,b=input().split()
+    try:
+        a=int(a)
+        b=int(b)
+        print(a//b)
+    except BaseException as e:
+        print("Error Code:",e)
+    

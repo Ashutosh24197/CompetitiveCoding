@@ -1,0 +1,15 @@
+# problem https://codeforces.com/contest/1374/problem/A
+
+# solution
+
+for _ in range(int(input())):
+    x,y,n=input().split()
+    x=int(x)
+    y=int(y)
+    n=int(n)
+    k=n//x
+    k=k*x
+    while k+y>n:
+        k=k-x
+    
+    print(k+y)

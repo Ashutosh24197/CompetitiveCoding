@@ -1,0 +1,45 @@
+# problem https://www.hackerrank.com/challenges/maximum-perimeter-triangle/problem
+
+# solution
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the maximumPerimeterTriangle function below.
+def maximumPerimeterTriangle(sticks):
+    ans=0
+    sides=[-1]
+    l=len(sticks)
+
+    for i in range(l-2):
+        for j in range(i+1,l-1):
+            for k in range(j+1,l):
+                a=sticks[i]
+                b=sticks[j]
+                c=sticks[k]
+
+                if a<b+c and b<a+c and c<a+b and a+b+c>ans:
+                    ans=a+b+c
+                    sides=[a,b,c]
+                    sides.sort()
+                    
+
+    return sides
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    sticks = list(map(int, input().rstrip().split()))
+
+    result = maximumPerimeterTriangle(sticks)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()

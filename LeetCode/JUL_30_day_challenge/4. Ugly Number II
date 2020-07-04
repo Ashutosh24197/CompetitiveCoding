@@ -1,0 +1,27 @@
+# problem   https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/544/week-1-july-1st-july-7th/3380/
+
+# solution
+
+class Solution:
+    def nthUglyNumber(self, n: int):
+        flist=[]
+        flist.append(1)
+        num1=2
+        num2=3
+        num3=5
+        id1=0
+        id2=0
+        id3=0
+        for i in range(1,n):
+            flist.append(min(num1,min(num2,num3)))
+            if num1==flist[i]:
+                id1=id1+1
+                num1=flist[id1]*2
+            if num2==flist[i]:
+                id2=id2+1
+                num2=flist[id2]*3
+            if num3==flist[i]:
+                id3=id3+1
+                num3=flist[id3]*5
+        return flist[-1]
+        

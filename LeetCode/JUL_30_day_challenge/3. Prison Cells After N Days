@@ -1,0 +1,26 @@
+# problem  https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/544/week-1-july-1st-july-7th/3379/
+
+# solution
+
+class Solution:
+    def prisonAfterNDays(self, cells: List[int], N: int):
+        N=(N-1)%14+1
+        
+        
+        for i in range(N):
+            ans=[0]*8
+            for j in range(1,7):
+                if cells[j-1]==cells[j+1]:
+                    ans[j]=1
+                else:
+                    ans[j]=0
+            
+            cells=ans
+        
+           
+        cells[0]=0
+        cells[7]=0
+        
+            
+        return cells
+        

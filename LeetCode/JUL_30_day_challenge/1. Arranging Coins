@@ -1,0 +1,11 @@
+# problem  https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/544/week-1-july-1st-july-7th/3377/
+
+# solution 
+
+class Solution:
+    def arrangeCoins(self, n: int):
+        k=1
+        while k*(k+1)/2<=n:
+            k+=1
+            
+        return k-1

@@ -1,0 +1,32 @@
+# problem https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/544/week-1-july-1st-july-7th/3378/
+
+# solution
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelOrderBottom(self, root: TreeNode):
+        if root==None:
+            return []
+        l=[]
+        ans=[]
+        l.append(root)
+        while len(l)>0:
+            a=[]
+            l2=[]
+            for r in l:
+                a.append(r.val)
+                if r.left!=None:
+                    l2.append(r.left)
+                if r.right!=None:
+                    l2.append(r.right)
+            l=l2
+            ans.append(a)
+            
+        ans.reverse()    
+        return ans
+        

@@ -1,0 +1,41 @@
+# Problem  https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/545/week-2-july-8th-july-14th/3384/
+
+# Solution
+
+class Solution:
+    def threeSum(self, nums: List[int]):
+        nums.sort()
+        res=[]
+        i=0
+        while i<len(nums):
+            tar = -nums[i];
+            start = i+1;
+            end = len(nums)-1;
+            while start<end:
+                sum = nums[start]+nums[end];
+                
+                if sum>tar:
+                    end-=1;
+                elif sum<tar:
+                    start+=1;
+                else:
+                    temp=[]
+                    temp.append(nums[i]);
+                    temp.append(nums[start]);
+                    temp.append(nums[end]);
+                    
+                    res.append(temp);
+                    
+                    while start<end and nums[start]==temp[1]:
+                        start+=1;
+                    while start<end and nums[end]==temp[2]:
+                        end-=1;
+                
+            
+            while i+1<len(nums) and nums[i]==nums[i+1]:
+                i+=1;
+            i+=1
+        return res
+            
+        
+        

@@ -1,0 +1,23 @@
+# solution 
+
+    def inorderTraversal(self, root: TreeNode):
+        
+        lst=[]
+        stack=[]
+        cur=root
+        
+        while True:
+            if cur!=None:
+                stack.append(cur)
+                cur=cur.left
+            elif len(stack)>0:
+                cur=stack.pop()
+                lst.append(cur.val)
+                cur=cur.right
+            else:
+                break
+                
+                
+            
+            
+        return lst

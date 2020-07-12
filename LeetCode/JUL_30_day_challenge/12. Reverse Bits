@@ -1,0 +1,16 @@
+# Problem https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/545/week-2-july-8th-july-14th/3388/
+
+# Solution 
+
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        s="{:032b}".format(n)
+      
+        l=list(s)
+        
+        l.reverse()
+       
+        s="".join(l)
+      
+        return int(s,2)
+        

@@ -1,0 +1,13 @@
+# Problem  https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/545/week-2-july-8th-july-14th/3387/
+
+# Solution
+
+class Solution:
+    
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        result=[]
+        from itertools import combinations
+        for i in range(0,len(nums)+1): 
+            for element in combinations(nums,i): 
+                result.append(list(element))
+        return result   

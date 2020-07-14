@@ -1,0 +1,19 @@
+# Problem  https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/545/week-2-july-8th-july-14th/3390/
+
+# solution
+
+class Solution:
+    def angleClock(self, hour: int, minutes: int) -> float:
+        hour=(hour*30+minutes/2);
+        if(hour>=360):
+            hour=hour-360;
+        minute=minutes*6;
+        if(minute>=hour):
+            ans= minute-hour;
+        else:
+            ans= hour-minute
+            
+        if(ans>180):
+            ans=360-ans;
+        return ans;
+        

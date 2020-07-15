@@ -1,0 +1,34 @@
+# Problem   https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/
+
+# solution
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    
+    def sumRootToLeaf(self, root: TreeNode) -> int:
+        self.l=[]
+        if root==None:
+            return 0
+        
+        self.find(root,"")
+        ans=0
+        
+        for s in self.l:
+            ans+=int(s,2)
+            
+        return ans
+        
+    def find(self, root: TreeNode, s):
+        s+=str(root.val)
+        if root.left==None and root.right==None:
+            self.l.append(s)
+        if root.left!=None:
+            self.find(root.left, s)
+        if root.right!=None:
+            self.find(root.right, s)
+        

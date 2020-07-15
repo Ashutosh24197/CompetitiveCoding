@@ -1,0 +1,10 @@
+# Problem  https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/546/week-3-july-15th-july-21st/3391/
+
+# Solution 
+
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s=s.split()
+        s.reverse()
+        return " ".join(s)
+        

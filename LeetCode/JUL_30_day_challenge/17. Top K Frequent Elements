@@ -1,0 +1,13 @@
+# problem  https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/546/week-3-july-15th-july-21st/3393/
+
+# Solution
+
+import collections
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        t=list(collections.Counter(nums).items())
+        t.sort(key=lambda x: x[1], reverse=True)
+
+        l=[x[0] for x in t]
+        return l[0:k]
+        

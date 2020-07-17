@@ -1,0 +1,17 @@
+# problem https://leetcode.com/problems/two-sum/
+
+# Solution
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        d={}
+        ans=[]
+        for i in range(len(nums)):
+            if d.get(target-nums[i],None)!=None:
+                ans=[d.get(target-nums[i]), i]
+                break
+            else:
+                d[nums[i]]=i
+                
+        return ans
+        

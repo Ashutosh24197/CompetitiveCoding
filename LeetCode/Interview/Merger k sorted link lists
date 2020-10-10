@@ -1,0 +1,46 @@
+// problem  https://leetcode.com/problems/merge-k-sorted-lists/
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode mergeKLists(ListNode[] l2) {
+        int k=l2.length;
+        int min = Integer.MAX_VALUE;
+        ListNode head=null;
+        ListNode ptr=null;
+        int index=0;
+      
+        while(true){
+            Boolean check=true;
+            min = Integer.MAX_VALUE;
+            for(int i=0;i<k;i++){
+                if(l2[i]!=null && l2[i].val<min){
+                    min=l2[i].val;
+                    index=i;
+                    check=false;
+                }
+            }
+            if(check)
+                break;
+            if(head==null){
+                head=l2[index];
+                ptr=head;
+                l2[index]=l2[index].next;       
+            }else{
+                ptr.next=l2[index];
+                ptr=ptr.next;
+                l2[index]=l2[index].next;
+            }
+        }
+        return head;
+    }
+}

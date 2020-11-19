@@ -1,0 +1,88 @@
+// problem  https://leetcode.com/problems/largest-rectangle-in-histogram/
+
+// broot force solution 
+
+
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        int ans=0;
+        int n = heights.length;
+        for(int i=0;i<n;i++){
+            int temp=0,l=0,r=0;
+            //  for left
+            for(int j=i-1;j>=0;j--){
+                if(heights[j]>=heights[i]){
+                    l+=1;
+                }else{
+                    break;
+                }
+            }
+            // for right
+            for(int j=i+1;j<n;j++){
+                if(heights[j]>=heights[i]){
+                    r+=1;
+                }else{
+                    break;
+                }
+            }
+            
+            temp = heights[i]*(l+r+1);
+            
+            if(temp>ans){
+                ans=temp;
+            }
+        }
+        
+        return ans;
+        
+    }
+}
+
+
+// upadd solution o(n) 
+
+
+import java.io.*; 
+import java.util.*; 
+
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        Stack<Integer> indexStack = new Stack<>();
+        Stack<Integer> heightStack = new Stack<>();
+        int ans=0;
+        
+        for(int i=0;i<heights.length;i++){
+            if(heightStack.empty() || heightStack.peek()<=heights[i]){
+                indexStack.push(i);
+                heightStack.push(heights[i]);
+            }else{
+                int index=0;
+                while(!heightStack.empty() && heightStack.peek()>=heights[i]){
+                    
+                    index = indexStack.peek();
+                    if(heightStack.peek()*(i-index)>ans){
+                        ans = heightStack.peek()*(i-index);
+                    }
+                    heightStack.pop();
+                    indexStack.pop();
+                }
+                
+                indexStack.push(index);
+                heightStack.push(heights[i]);
+            }
+        }
+        
+        while(!heightStack.empty()){
+                    
+                    int index = indexStack.peek();
+                    if(heightStack.peek()*(heights.length-index)>ans){
+                        ans = heightStack.peek()*(heights.length-index);
+                    }
+                    heightStack.pop();
+                    indexStack.pop();
+                }
+        
+        return ans;
+        
+    }
+}

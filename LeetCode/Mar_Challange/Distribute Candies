@@ -1,0 +1,20 @@
+// Problem https://leetcode.com/explore/featured/card/march-leetcoding-challenge-2021/588/week-1-march-1st-march-7th/3657/
+
+// solution 
+
+
+import java.util.*;
+
+class Solution {
+    public int distributeCandies(int[] candyType) {
+        HashSet<Integer> candys = new HashSet<>();
+        for(int candy:candyType)
+            candys.add(candy);
+        
+        if(candys.size()>candyType.length/2){
+            return candyType.length/2;
+        }else{
+            return candys.size();
+        }
+    }
+}

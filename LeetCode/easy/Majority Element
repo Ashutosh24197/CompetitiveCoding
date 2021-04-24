@@ -1,0 +1,38 @@
+// problem  https://leetcode.com/problems/majority-element/submissions/
+
+// Solution 
+
+import java.util.HashMap;
+class Solution {
+    public int majorityElement(int[] nums) {
+        int ans=0;
+        HashMap<Integer,Integer> mp = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            if(mp.containsKey(nums[i])){
+                mp.put(nums[i],mp.get(nums[i])+1);
+            }else{
+                mp.put(nums[i],1);
+            }
+                
+        }
+        
+        for(int n: mp.keySet()){
+            if(mp.get(n)>nums.length/2){
+                ans=n;
+            }
+        }
+        
+        return ans;
+    }
+}
+
+// 
+
+import java.util.HashMap;
+class Solution {
+    public int majorityElement(int[] nums) {
+      Arrays.sort(nums);
+        
+      return nums[nums.length/2];
+    }
+}

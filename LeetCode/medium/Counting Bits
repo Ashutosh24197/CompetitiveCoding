@@ -1,0 +1,21 @@
+// Problem  https://leetcode.com/problems/counting-bits/
+
+// Solution  
+
+class Solution {
+    public int[] countBits(int num) {
+        int ans[] = new int[num+1];
+        ans[0]=0;
+        int n=1;
+        for(int i=1;i<=num;i++){
+            if(i == n*2){
+                ans[i]=1;
+                n=i;
+            }else{
+                ans[i]=ans[i-n]+1;
+            }
+        }
+        
+        return ans;
+    }
+}

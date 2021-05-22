@@ -1,0 +1,37 @@
+// problem https://practice.geeksforgeeks.org/problems/union-of-two-arrays3538/1#
+
+class Solution{
+    public static int doUnion(int a[], int n, int b[], int m) 
+    {
+        int ans=1;
+        int[] arr = new int[n+m];
+        for(int i=0;i<n;i++){
+            arr[i]= a[i];
+        }
+        for(int i=n;i<n+m;i++){
+            arr[i]= b[i-n];
+        }
+        Arrays.sort(arr);
+        for(int i=1;i<n+m;i++){
+           if(arr[i]!=arr[i-1])
+                ans++;
+        }
+        
+        return ans;
+    }
+}
+
+// using set collection Normal time 2.57, using set time 2.15
+class Solution{
+    public static int doUnion(int a[], int n, int b[], int m) 
+    {
+        Set<Integer> s = new HashSet<>();
+        for(int i:a)
+            s.add(i);
+        for(int i:b)
+            s.add(i);
+            
+            
+        return s.size();
+    }
+}

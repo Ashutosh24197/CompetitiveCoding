@@ -1,0 +1,57 @@
+// problem  https://leetcode.com/problems/count-and-say/submissions/
+class Solution {
+    public String countAndSay(int n) {
+        StringBuffer s=new StringBuffer("1");
+        int i=2;
+        while(i<=n){
+            StringBuffer curS=new StringBuffer();
+            int j=0;
+            while(j<s.length()){
+                int count=1,k=j+1;
+                while(k<s.length()){
+                    if(s.charAt(k)==s.charAt(j)){
+                        count++;
+                        k++;
+                    }else{
+                        break;
+                    }
+                }
+                curS.append(Integer.toString(count)+s.charAt(j));
+                j=k;
+            }
+            s=curS;
+            i++;
+        }
+      return s.toString();  
+    }
+}
+
+
+// another 
+public class Solution {
+        public String countAndSay(int n) {
+            String output = "1";
+            for (int i = 1; i < n; i++) {
+                output = recursive(output);
+            }
+            return output;
+        }
+
+        private String recursive(String input) {
+            char[] ica = input.toCharArray();
+            char lastIc = ica[0];
+            int count = 0;
+            StringBuilder output = new StringBuilder();
+            for (char ic : ica) {
+                if (ic == lastIc) {
+                    count++;
+                } else {
+                    output.append(count).append(lastIc);
+                    count = 1;
+                    lastIc = ic;
+                }
+            }
+            output.append(count).append(lastIc);
+            return output.toString();
+        }
+    }
